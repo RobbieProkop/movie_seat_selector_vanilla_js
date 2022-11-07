@@ -5,3 +5,32 @@ const count = document.getElementById("count");
 const total = document.getElementById("total");
 const movieSelect = document.getElementById("movie");
 const ticketPrice = +movieSelect.value;
+
+//functions
+// update total and count
+const updateSelectedCount = () => {
+  const selectedSeats = document.querySelectorAll(".row .seat.selected");
+
+  const selectedSeatsCount = selectedSeats.length;
+
+  count.innerText = selectedSeatsCount;
+  total.innerText = movieSelect.value * selectedSeatsCount;
+
+  // const totalPrice = moviePrice * selectedSeatsCount;
+
+  // return totalPrice;
+};
+
+//Add Event Listeners
+
+//seat selection
+container.addEventListener("click", (e) => {
+  const seat = e.target.classList;
+  if (seat.contains("seat") && !seat.contains("occupied")) {
+    seat.toggle("selected");
+  }
+
+  updateSelectedCount();
+});
+
+//Movie Select
