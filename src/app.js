@@ -11,6 +11,14 @@ let ticketPrice = +movieSelect.value;
 const updateSelectedCount = () => {
   const selectedSeats = document.querySelectorAll(".row .seat.selected");
 
+  // Copy selected seats into an array
+  // Mapp through that array
+  // Return new arr of index
+  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+
+  //set to localstorage
+  localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+
   const selectedSeatsCount = selectedSeats.length;
 
   const totalPrice = ticketPrice * selectedSeatsCount;
