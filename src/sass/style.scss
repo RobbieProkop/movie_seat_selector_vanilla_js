@@ -107,3 +107,10 @@ html {
 .row {
   display: flex;
 }
+
+.text {
+  margin: 5px 0;
+  span {
+    color: $primary-color;
+  }
+}
