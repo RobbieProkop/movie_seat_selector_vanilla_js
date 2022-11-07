@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
+$primary-color: #6feaf6;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,7 +42,7 @@ html {
   border-top-right-radius: 10px;
 
   &.selected {
-    background-color: #6feaf6;
+    background-color: $primary-color;
   }
 
   &.occupied {
@@ -52,8 +54,20 @@ html {
   &:nth-last-of-type(2) {
     margin-left: 18px;
   }
+
+  &:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: $primary-color;
+  }
 }
 .showcase {
+  .seat {
+    &:not(.occupied):hover {
+      cursor: default;
+      transform: scale(1);
+    }
+  }
 }
 
 .row {
