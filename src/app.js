@@ -13,12 +13,11 @@ const updateSelectedCount = () => {
 
   const selectedSeatsCount = selectedSeats.length;
 
+  const totalPrice = movieSelect.value * selectedSeatsCount;
   count.innerText = selectedSeatsCount;
-  total.innerText = movieSelect.value * selectedSeatsCount;
+  total.innerText = totalPrice;
 
-  // const totalPrice = moviePrice * selectedSeatsCount;
-
-  // return totalPrice;
+  return totalPrice;
 };
 
 //Add Event Listeners
@@ -34,3 +33,6 @@ container.addEventListener("click", (e) => {
 });
 
 //Movie Select
+movieSelect.addEventListener("change", (e) => {
+  console.log(movieSelect.value);
+});
