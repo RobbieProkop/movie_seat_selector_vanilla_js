@@ -19,7 +19,7 @@ const updateSelectedCount = () => {
   const selectedSeats = document.querySelectorAll(".row .seat.selected");
 
   // Copy selected seats into an array
-  // Mapp through that array
+  // Map through that array
   // Return new arr of index
   const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
 
@@ -35,7 +35,22 @@ const updateSelectedCount = () => {
   return totalPrice;
 };
 
+//get data from Loacal Storage & populate UI
+const populateUI = () => {
+  const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+
+  if (!selectedSeats || !selectedSeats.length > 0) {
+    return;
+  }
+  seats.forEach((seat, index) => {
+    if (selectedSeats.indexOf(index) > -1) {
+      seat.classList.add("selected");
+    }
+  });
+};
+
 //Add Event Listeners
+populateUI();
 
 //on Dom load
 document.addEventListener("DOMContentLoaded", () => {
