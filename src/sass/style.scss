@@ -38,6 +38,20 @@ html {
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
+  &.selected {
+    background-color: #6feaf6;
+  }
+
+  &.occupied {
+    background-color: #fff;
+  }
+  &:nth-of-type(2) {
+    margin-right: 18px;
+  }
+  &:nth-last-of-type(2) {
+    margin-left: 18px;
+  }
 }
 .showcase {
 }
