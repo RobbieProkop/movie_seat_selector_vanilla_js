@@ -42,11 +42,20 @@ const populateUI = () => {
   if (!selectedSeats || !selectedSeats.length > 0) {
     return;
   }
+  // change colour of selected seats from LS
   seats.forEach((seat, index) => {
     if (selectedSeats.indexOf(index) > -1) {
       seat.classList.add("selected");
     }
   });
+
+  // grab movie from LS
+  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+  if (selectedMovieIndex) movieSelect.selectedIndex = selectedMovieIndex;
+
+  // grab prices from LS
+  const selectedMoviePrice = localStorage.getItem("selectedMoviePrice");
+  if (selectedMoviePrice) ticketPrice = selectedMoviePrice;
 };
 
 //Add Event Listeners
@@ -74,3 +83,6 @@ movieSelect.addEventListener("change", (e) => {
   setMovieData(e.target.selectedIndex, e.target.value);
   updateSelectedCount();
 });
+
+//initial count and total
+updateSelectedCount();
